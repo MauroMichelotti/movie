@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="30" status="info" strict="true" name="AppStoreLogConfig">
+  <Properties>
+    <Property name="autostrade.application.log.dir">/webapp_config/gix/log</Property>
+  </Properties>
+
+  <Appenders>
+    <Appender type="Console" name="Console">
+      <Layout type="PatternLayout" pattern="%d %p [%t] %m%n" />
+    </Appender>
+    <Appender type="File" name="File" fileName="${sys:autostrade.application.log.dir}/appstore.log">
+      <Layout type="PatternLayout" pattern="%d %p %C{1.} [%t] %m%n" />
+    </Appender>
+    <Appender type="File" name="hibernate" fileName="${sys:autostrade.application.log.dir}/hibernate.log">
+      <Layout type="PatternLayout" pattern="%d %p %C{1.} [%t] %m%n" />
+    </Appender>
+    <Appender type="File" name="httpclient" fileName="${sys:autostrade.application.log.dir}/httpclient.log">
+      <Layout type="PatternLayout" pattern="%d %p %C{1.} [%t] %m%n" />
+    </Appender>
+  </Appenders>
+
+  <Loggers>
+    <Root level="INFO">
+      <AppenderRef ref="File" />
+      <AppenderRef ref="Console" />
+    </Root>
+    <Logger name="org.hibernate" level="INFO">
+      <AppenderRef ref="hibernate" />
+      <AppenderRef ref="Console" />
+    </Logger>
+    <Logger name="org.apache.http" level="INFO">
+      <AppenderRef ref="httpclient" />
+      <AppenderRef ref="Console" />
+    </Logger>
+  </Loggers>
+</Configuration>

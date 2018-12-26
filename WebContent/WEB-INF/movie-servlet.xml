@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc"
+  xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:tx="http://www.springframework.org/schema/tx"
+  xsi:schemaLocation="http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+  <context:component-scan base-package="net.mm.movie.controller" />
+  <mvc:annotation-driven />
+
+  <jpa:repositories base-package="net.mm.movie.repository" />
+  <tx:annotation-driven />
+
+  <!-- <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+    <property name="driverClassName" value="org.postgresql.Driver" />
+    <property name="url" value="jdbc:postgresql://127.0.0.1:5432/movie" />
+    <property name="username" value="movie" />
+    <property name="password" value="Movie2019" />
+
+    <property name="initialSize" value="1" />
+    <property name="maxActive" value="10" />
+    <property name="testOnBorrow" value="true" />
+    <property name="validationQuery" value="SELECT 1" />
+    <property name="testWhileIdle" value="true" />
+    <property name="timeBetweenEvictionRunsMillis" value="500000" />
+  </bean> -->
+  <!-- <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <property name="packagesToScan" value="net.mm.movie.model" />
+    <property name="dataSource" ref="dataSource" />
+    <property name="jpaProperties">
+      <props>
+        <prop key="hibernate.show_sql">false</prop>
+        <prop key="hibernate.hbm2ddl.auto">update</prop>
+        <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</prop>
+      </props>
+    </property>
+
+    <property name="jpaVendorAdapter">
+      <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+    </property>
+
+    <property name="persistenceProvider">
+      <bean class="org.hibernate.jpa.HibernatePersistenceProvider"></bean>
+    </property>
+  </bean> -->
+  
+  <!-- <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <property name="entityManagerFactory" ref="entityManagerFactory" />
+  </bean> -->
+
+  <!-- <bean id="environmentConfig" class="it.autostrade.gix.common.EnvironmentConfig">
+    <property name="serverEnvironment" value="test" />
+  </bean> -->
+  <!-- <bean id="appHandler" class="it.autostrade.gix.appstore.common.ApplicazioneHandler"></bean> -->
+
+</beans>
