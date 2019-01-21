@@ -11,21 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.mm.movie.controller.beans.Response;
-import net.mm.movie.model.Genere;
-import net.mm.movie.repository.GenereRepository;
+import net.mm.movie.model.Formato;
+import net.mm.movie.repository.FormatoRepository;
 import net.mm.movie.response.ListObjectResponse;
 
 @RestController
-@RequestMapping(path = "/genere")
-public class GenereController {
+@RequestMapping(path = "/formato")
+public class FormatoController {
 
   @Autowired
-  private GenereRepository genereRepo;
+  private FormatoRepository formatoRepo;
 
   @GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public ResponseEntity<Response> read() {
-    List<Genere> lst = genereRepo.findAll();
-    ListObjectResponse<Genere> response = new ListObjectResponse<>();
+    List<Formato> lst = formatoRepo.findAll();
+    ListObjectResponse<Formato> response = new ListObjectResponse<>();
     response.setObjects(lst);
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
